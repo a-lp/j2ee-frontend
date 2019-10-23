@@ -3,7 +3,6 @@ package com.j2ee.webservice.controller;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import java.util.Collection;
 import java.util.List;
 
 import org.junit.Test;
@@ -14,7 +13,6 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.j2ee.webservice.model.Personne;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Collections;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -25,7 +23,7 @@ public class PersonneControllerTest {
 
 	@Test
 	public void testGetAll() {
-		List<Personne> lista = (List<Personne>) this.restTemplate.getForObject("localhost:8080/personnes", Collection.class);
+		List<Personne> lista = this.restTemplate.getForObject("localhost:8080/personnes", List.class);
 		assertEquals(5, lista.size());
 	}
 
