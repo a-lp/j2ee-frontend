@@ -23,7 +23,7 @@ public class PersonneControllerTest {
 
 	@Test
 	public void testGetAll() {
-		List<Personne> lista = this.restTemplate.getForObject("localhost:8080/personnes", List.class);
+		List<Personne> lista = this.restTemplate.getForObject("http://localhost:8080/personnes", List.class);
 		assertEquals(5, lista.size());
 	}
 
