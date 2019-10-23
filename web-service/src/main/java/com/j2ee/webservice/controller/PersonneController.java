@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,8 +19,11 @@ import com.j2ee.webservice.services.FuzzerService;
 import com.j2ee.webservice.services.PersonnesDB;
 
 @RestController
+@Repository
 public class PersonneController {
 
+	
+	
 	@GetMapping("/personnes")
 	public List<Personne> getAll() {
 		if (PersonnesDB.getPersonnes().isEmpty()) {

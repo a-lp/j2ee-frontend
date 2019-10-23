@@ -3,18 +3,17 @@ package com.j2ee.webservice.controller;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-import java.util.ArrayList;
-
 import org.junit.Test;
-
-import com.j2ee.webservice.model.Personne;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class PersonneControllerTest {
+	
+	@Autowired
+	private PersonneController pc = new PersonneController();
 
 	@Test
 	public void testGetAll() {
-		ArrayList<Personne> personnes = new ArrayList<Personne>();
-		assertEquals(5, personnes.size());
+		assertEquals(0, pc.getAll().size());
 	}
 
 	@Test
