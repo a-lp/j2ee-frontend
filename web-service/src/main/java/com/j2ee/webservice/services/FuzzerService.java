@@ -8,7 +8,7 @@ public class FuzzerService {
 
 	public static void randomList() {
 		Random random = new Random();
-		for (int i = 0; i < (5 + random.nextInt(10)); i++) {
+		for (int i = 0; i < 5; i++) {
 			PersonnesDB.addPersonne(new Personne(randomNom(), randomNom()));
 		}
 	}
