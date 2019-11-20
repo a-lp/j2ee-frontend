@@ -6,5 +6,16 @@ pipeline {
                bat 'mvn -f web-service/pom.xml clean package'
             }
         }
+        stage('Stopping previous application'){
+	        script(
+	        	try{	        	
+		        	steps{
+		        		bat 'sh -c "curl -X POST localhost:8080/actuator/shutdown"'
+		        	}
+	        	}
+	        	catch(Exception e){	}	        
+	        )
+        }
+        
     }
 }

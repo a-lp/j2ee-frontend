@@ -42,7 +42,6 @@ public class PersonneController {
 	@ResponseBody
 	public Personne updatePersonne(@PathVariable String id, @RequestBody Map<String, String> allParams) {
 		Personne p = personneService.getById(id);
-		// personneService.remove(p);
 		p.setNom(allParams.get("nom"));
 		p.setPrenom(allParams.get("prenom"));
 		return personneService.save(p);
