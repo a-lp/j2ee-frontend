@@ -18,7 +18,19 @@ pipeline {
         }
         stage('Deploying new application'){
         	steps{
-        		bat 'java -jar web-service/target/web-service-0.0.1-SNAPSHOT.jar'
+        		bat 'java -jar web-service/target/web-service-0.0.1-SNAPSHOT.jar>log.txt &'
+        	}
+        }
+        stage('Verify deployment'){
+        	script{
+        		deployed = false
+        		while(!deployed){
+        			sleep(5)
+        			def response = httpRequest 'http://localhost:8080/actuator/health'
+			        if(response.getStatus()==200){
+			        	deployed=true
+			        }
+        		}
         	}
         }
     }
