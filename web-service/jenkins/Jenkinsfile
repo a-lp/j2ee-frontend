@@ -22,14 +22,16 @@ pipeline {
         	}
         }
         stage('Verify deployment'){
-        	script{
-        		deployed = false
-        		while(!deployed){
-        			sleep(5)
-        			response = httpRequest 'http://localhost:8080/actuator/health'
-			        if(response.getStatus()==200){
-			        	deployed=true
-			        }
+        	step{
+	        	script{
+	        		deployed = false
+	        		while(!deployed){
+	        			sleep(5)
+	        			response = httpRequest 'http://localhost:8080/actuator/health'
+				        if(response.getStatus()==200){
+				        	deployed=true
+				        }
+	        		}
         		}
         	}
         }
