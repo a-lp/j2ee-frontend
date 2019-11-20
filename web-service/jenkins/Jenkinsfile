@@ -22,7 +22,7 @@ pipeline {
         	}
         }
         stage('Verify deployment'){
-        	step{
+        	steps{
 	        	script{
 	        		deployed = false
 	        		while(!deployed){
