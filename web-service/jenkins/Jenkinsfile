@@ -7,14 +7,14 @@ pipeline {
             }
         }
         stage('Stopping previous application'){
-	        script(
-	        	try{	        	
-		        	steps{
-		        		bat 'sh -c "curl -X POST localhost:8080/actuator/shutdown"'
+	        steps{
+	        	script{
+		        	try{	        	
+			        	bat 'sh -c "curl -X POST localhost:8080/actuator/shutdown"'
 		        	}
-	        	}
-	        	catch(Exception e){	}	        
-	        )
+		        	catch(Exception e){	}
+	        	}       
+	        }
         }
         
     }
