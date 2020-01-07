@@ -61,6 +61,9 @@
 				<executions>
 					<execution>
 						<id>exec-npm-install</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
 						<phase>generate-sources</phase>
 						<configuration>
 							<workingDirectory>${project.basedir}/src/main/angular
@@ -74,6 +77,9 @@
 					<execution>
 						<id>exec-npm-ng-build</id>
 						<phase>compile</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
 						<configuration>
 							<workingDirectory>${project.basedir}/src/main/angular
 							</workingDirectory>
